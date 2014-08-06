@@ -18,8 +18,8 @@ directive('bindPolymerToggle', ['$parse', function($parse) {
         restrict: 'A',
         link: function(scope, element, attrs) {
             scope.$watch(attrs.bindPolymerToggle, function(value) {
-                element[0].ariaPressed = value;
-            });
+                element[0].checked = value;
+            }, true);
             element[0].addEventListener('change', function() {
                 $parse(attrs.bindPolymerToggle).assign(scope, element[0].checked);
                 scope.$apply();
